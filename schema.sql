@@ -2,18 +2,21 @@
 CREATE TABLE location (
     id INT AUTO_INCREMENT PRIMARY KEY,
     state VARCHAR(255) NOT NULL,
+    wp_term_id INT NOT NULL,
 );
 
 -- create the category_age table
 CREATE TABLE category_age (
     id INT AUTO_INCREMENT PRIMARY KEY,
     category VARCHAR(255) NOT NULL,
+    wp_term_id INT NOT NULL,
 );
 
 -- Create the physical_size table
 CREATE TABLE physical_size (
     id INT AUTO_INCREMENT PRIMARY KEY,
     size VARCHAR(255) NOT NULL,
+    wp_term_id INT NOT NULL,
 );
 
 -- Create the owner table
