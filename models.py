@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from typing import Optional
 
 @dataclass
 class User:
@@ -15,15 +14,15 @@ class Location:
 
 @dataclass
 class CategoryAge:
-    id: Optional[int]
+    id: int
     category: str
-    wp_term_id: Optional[int]
+    wp_term_id: int
 
 @dataclass
 class PhysicalSize:
-    id: Optional[int]
+    id: int
     size: str
-    wp_term_id: Optional[int]
+    wp_term_id: int
 
 @dataclass
 class Pet:
