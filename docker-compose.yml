@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: my_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: petfinder
+      MYSQL_USER: petfinder
+      MYSQL_PASSWORD: petfinder
+    volumes:
+      - .docker/mysql_volume:/var/lib/mysql
+    networks:
+      - petfinder
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+
+networks:
+  petfinder:
+    driver: host
