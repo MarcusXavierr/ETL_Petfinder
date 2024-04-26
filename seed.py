@@ -1,8 +1,4 @@
-import os
-import pymysql.cursors
-from dotenv import load_dotenv
-
-load_dotenv()
+from create_connection import get_mysql_connection
 
 categoryAges = [
     {'age':"Filhote", 'wp_term_id': 11},
@@ -17,18 +13,13 @@ physicalSizes = [
 ]
 
 def seed_data():
-    connection = pymysql.connect(host=os.getenv('DB_HOST'),
-                                 port=int(os.getenv('DB_PORT') or 0),
-                                 user=os.getenv('DB_USER'),
-                                 password=os.getenv('DB_PASSWORD') or '',
-                                 db=os.getenv('DB_NAME'),
-                                 charset='utf8mb4',
-                                 cursorclass=pymysql.cursors.DictCursor)
+    connection = get_mysql_connection(False)
+    print('entrei')
 
     with connection.cursor() as cursor:
         for categoryAge in categoryAges:
             print(f'inserindo {categoryAge["age"]}')
-            cursor.execute("INSERT INTO category_ages (age, wp_term_id) VALUES (%s, %s)", (categoryAge['age'], categoryAge['wp_term_id']))
+            cursor.execute("INSERT INTO category_ages (category, wp_term_id) VALUES (%s, %s)", (categoryAge['age'], categoryAge['wp_term_id']))
         connection.commit()
 
     with connection.cursor() as cursor:
@@ -38,3 +29,5 @@ def seed_data():
         connection.commit()
 
     connection.close()
+
+seed_data()
