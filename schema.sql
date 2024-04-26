@@ -1,5 +1,5 @@
 -- Create the Location table
-CREATE TABLE location (
+CREATE TABLE locations (
     id INT AUTO_INCREMENT PRIMARY KEY,
     state VARCHAR(255) NOT NULL,
     wp_term_id INT NOT NULL,
@@ -20,14 +20,14 @@ CREATE TABLE physical_sizes (
 );
 
 -- Create the owner table
-CREATE TABLE owner (
+CREATE TABLE owners (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
 );
 
 -- Create the pet table
-CREATE TABLE pet (
+CREATE TABLE pets (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     sex ENUM('M', 'F') NOT NULL,
