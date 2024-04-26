@@ -6,14 +6,14 @@ CREATE TABLE location (
 );
 
 -- create the category_age table
-CREATE TABLE category_age (
+CREATE TABLE category_ages (
     id INT AUTO_INCREMENT PRIMARY KEY,
     category VARCHAR(255) NOT NULL,
     wp_term_id INT NOT NULL,
 );
 
 -- Create the physical_size table
-CREATE TABLE physical_size (
+CREATE TABLE physical_sizes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     size VARCHAR(255) NOT NULL,
     wp_term_id INT NOT NULL,
